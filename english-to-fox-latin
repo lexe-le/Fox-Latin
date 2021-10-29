@@ -13,21 +13,23 @@ Due: October 19th """
 #split after spaces ->
 
             
-#make a different function
-def translate(phrase):
-    """translating english to fox latin""
+def to_fox_latin(phrase):
+    """final translation and join the words"""
+    lower_phrase = phrase.lower()
+    words = lower_phrase.split()
+    return translate(words)
+    
+    
+def translate(words):
+    """helper function that translates to fox latin"""
+    sentence = []
+    fox_letters = ["b", "f", "g", "h", "i", "j", "k", "l",\
+                   "n", "p", "r", "s", "t", "v", "w", "y", "z"]
     for word in words:
         if word[0] in fox_letters:
             sentence.append(word[1:] + word[0] + "ow")
         else:
-            sentence.append(word + "wow" )
+            sentence.append(word + "wow")
+    final_translation = " ".join(sentence)
+    return final_translation
 
-#main function
-def to_fox_latin(phrase):
-    """main function to carry out translation"""
-    sentence = []
-    lower_phrase = phrase.lower()
-    words = lower_phrase.split()
-    fox_letters = ["b" , "f" , "g", "h", "i", "j", "k", "l", "n", "p", "r", "s","t", "v", "w", "y", "z"]        
-    translate(words)
- 
