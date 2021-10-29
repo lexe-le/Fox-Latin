@@ -1,0 +1,40 @@
+"""Name: Lexe Le
+Date: October 19th
+Description: Translate fox latin back to nicer english"""
+
+import words
+
+def get_word_list():
+    """helper function"""
+    words_list = []
+    #with open("words.txt", encoding='utf-8') as word_file:
+        #for line in word_file:
+            #words_list.append(line.strip())
+    for word in words.get_word_list():
+        words_list.append(word.lower())
+    return words_list
+    
+def nicer_to_english(phrase):
+    """translate to better english"""
+    sentence = []
+    words_list = get_word_list()
+    for word in phrase.split():
+        if word[-3:] == "wow":
+            pos_word1 = word[:-3]
+            pos_word2 = word[-3] + word[:-3]
+            if pos_word1 in words_list and pos_word2 in words_list:
+                nicer_word = "{" + pos_word2 + " or " + pos_word1 + "}"
+                sentence.append(nicer_word)
+            elif pos_word1 in words_list:
+                nicer_word = "[" + pos_word1 + "]"
+                sentence.append(nicer_word)
+            elif pos_word2 in words_list:
+                nicer_word = "[" + pos_word2 + "]"
+                sentence.append(nicer_word)
+            elif pos_word1 not in words_list and pos_word2 not in words_list:
+                nicer_word = "(" + pos_word2 + " or " + pos_word1 + ")"
+                sentence.append(nicer_word)
+        else:
+            sentence.append(word[-3] + word[:-3])
+    return " ".join(sentence)
+
