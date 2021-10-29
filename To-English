@@ -1,0 +1,16 @@
+""" To Translate Fox Latin back to English """
+
+def to_english(phrase):
+    """onvert foxlatin to ... english"""
+    return translate(phrase)
+
+def translate(phrase):
+    """helper function"""
+    sentence = []
+    for word in phrase.split():
+        if word[-3:] == "wow":
+            sentence.append("(" + word[-3] + word[:-3] + " or " + word[:-3] + ")")             
+        else:
+            sentence.append(word[-3] + word[:-3])
+    final_translation = " ".join(sentence)
+    return final_translation
