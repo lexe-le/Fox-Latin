@@ -1,0 +1,33 @@
+""" Translating English to Fox Latin
+Name: Lexe Le
+Class: COMP SCI 1101B
+Due: October 19th """
+
+# Fox letters = "b" , "f" , "g", "h", "i", "j", "k", "l", "n", "p", "r", "s",
+# "t", "v", "w", "y" or "z"
+
+#If the English word starts with a fox letter, move the first letter to the end of the word and add the string "ow". 
+
+#Otherwise, the Fox Latin version is the English word followed by "wow".
+
+#split after spaces ->
+
+            
+#make a different function
+def translate(phrase):
+    """translating english to fox latin""
+    for word in words:
+        if word[0] in fox_letters:
+            sentence.append(word[1:] + word[0] + "ow")
+        else:
+            sentence.append(word + "wow" )
+
+#main function
+def to_fox_latin(phrase):
+    """main function to carry out translation"""
+    sentence = []
+    lower_phrase = phrase.lower()
+    words = lower_phrase.split()
+    fox_letters = ["b" , "f" , "g", "h", "i", "j", "k", "l", "n", "p", "r", "s","t", "v", "w", "y", "z"]        
+    translate(words)
+ 
